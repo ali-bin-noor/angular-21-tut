@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { SignUp } from './sign-up/sign-up';
 import { ProfileComponent } from './profile/profile';
+import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
 
 @Component({
   imports: [RouterOutlet, Login, SignUp, ProfileComponent],
@@ -72,5 +73,73 @@ export class App {
       this.count = 0;
     }
   }
+
+  handleEvent(event:Event){//MouseEvent ki jagah any laga sakte ho
+    console.log("function called",event.type)
+    //console.log("function called",event.target.name)
+    //console.log("function called",(event.target as Element).className)
+    console.log("value",(event.target as HTMLInputElement).value)
+  }
+
+  
+
+
+  naam =""
+  displaynaam = ""
+  getNaam(event:Event){
+    const value = (event.target as HTMLInputElement).value
+    console.log(value)
+    this.naam= value
+  }
+
+  showNaam(){
+    this.displaynaam=this.naam
+  }
+
+  setNaam(){
+    this.naam="Sam"
+  }
+
+
+  email2=""
+  getEmail(value:string){
+    console.log(value)
+    this.email2=value
+  }
+  setEmail(){
+    this.email2 = "test@test.com"
+  }
+
+  //learning if-else | control flow
+  display = true;
+  x=10
+  toggle2Div= false
+
+  hideDiv(){
+    this.display=false
+  }
+
+  showDiv(){
+    this.display=true
+  }
+  toggleDiv(){
+    this.display = !this.display
+  }
+
+  toggleTwoDiv(){
+    this.toggle2Div =!this.toggle2Div
+  }
+
+  // learning else if
+  color = 100
+
+  handleColor(val:number){
+    this.color=val
+  }
+
+  handleInput(event:Event){
+      this.color=parseInt((event.target as HTMLInputElement).value)
+  }
+
 
 }

@@ -30,3 +30,119 @@
         <button (click) = "handleCounter('plus')" class="btn bg-green">Increment</button>
     </div>
 </div>
+
+<h1>Event in Angular</h1>
+<button class = "btn" name= "login" (click)="handleEvent($event)">Click event</button>
+
+<br>
+<br>
+
+<div
+(click)="handleEvent($event)"
+style="background-color: green; width: 100px; height: 100px;">
+
+
+</div>
+
+<div 
+(mouseenter)="handleEvent($event)" (mouseleave)="handleEvent($event)"
+style="background-color: red; width: 100px; height: 100px;">
+
+</div>
+
+<div 
+(mouseleave)="handleEvent($event)"
+style="background-color: yellow; width: 100px; height: 100px;">
+
+</div>
+
+<br>
+<br>
+
+<input 
+(focus)="handleEvent($event)"
+(blur)="handleEvent($event)"
+(input)="handleEvent($event)"
+type="text" name="user">
+
+<br>
+<br>
+
+<!--Get and Set input-->
+<h1>Get and Set Input field value</h1>
+<h1>User Name is : {{displaynaam}} </h1>
+<input type="text" value="{{naam}}"  (input)="getNaam($event)"  placeholder="Enter User name">
+<br>
+<br>
+<button (click)="showNaam()">Get Name</button>
+<button (click)="setNaam()">Set Name</button>
+<hr>
+
+<!--template reference variable-->
+<h1>Email : {{email2}}</h1>
+<input type="text" placeholder="Get Email" #emailField>
+<button (click)="getEmail(emailField.value)">Get Email</button>
+<button (click)="setEmail()">Set Email</button>
+
+<hr>
+
+<!--learning if else -->
+<h1>If else | control flow</h1>
+
+<!-- @if(x==10){
+    <div style="width: 200px;height: 200px; background-color: red ;">
+
+    </div>
+}
+<br> -->
+
+<button (click)="hideDiv()">Hide Div</button>
+<button (click)="showDiv()">Show Div</button>
+<button (click)="toggleDiv()">Toggle Div</button>
+@if(display){
+    <div style="width: 200px;height: 200px; background-color: green ;">
+
+    </div>
+}
+
+<hr>
+
+<button (click)="toggleTwoDiv()">{{toggle2Div?'show red div':'show gold div'}}</button>
+
+@if(toggle2Div){
+    <div style="background-color: gold; width: 200px; height: 200px;">
+
+    </div>
+}
+@else{
+    <div style="background-color: red; width: 200px; height: 200px;">
+
+    </div>
+}
+<hr>
+<!--learning else if-->
+<h1>Else If | Conrol Flow</h1>
+
+<button (click)="handleColor(1)">Red</button>
+<button (click)="handleColor(2)">Blue</button>
+<button (click)="handleColor(3)">Green</button>
+<button (click)="handleColor(10)">Other</button>
+
+<input (input)="handleInput($event)" type="text" placeholder="Enter color number">
+@if(color == 1){
+    <div style="background-color: red; width: 100px; height: 100px;"></div>
+}
+@else if(color == 2){
+    <div style="background-color: blue; width: 100px; height: 100px;"></div>
+}
+@else if(color == 3){
+    <div style="background-color: green; width: 100px; height: 100px;"></div>
+}
+@else{
+    <div style="background-color: black; width: 100px; height: 100px;"></div>
+}
+
+<!--learning switch case-->
+
+
+    
