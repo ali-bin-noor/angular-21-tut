@@ -141,5 +141,6 @@ export class App {
       this.color=parseInt((event.target as HTMLInputElement).value)
   }
 
+   // learning switch case
 
 }
