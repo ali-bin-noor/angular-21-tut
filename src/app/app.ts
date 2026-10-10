@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { Component, computed, effect, Signal, signal, WritableSignal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { SignUp } from './sign-up/sign-up';
@@ -179,6 +179,14 @@ export class App {
   updatevalue() {
     this.countForSignal.set(this.countForSignal() + 1)
 
+  }
+
+  // Data Type with Signals
+  dataForSignal: WritableSignal<number | string> = signal<number | string>(10)//writable signal
+  // countForExecutableSignal: Signal<number> = computed(() => 300) //executable signal - this is treat as constant values/cannot change the value
+
+  updateValueForSignal() {
+    this.dataForSignal.set(this.data = 'Hello')
   }
 
 }

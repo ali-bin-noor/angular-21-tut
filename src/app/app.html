@@ -194,3 +194,12 @@
 <h1>{{countForSignal()}}</h1>
 <button (click)="countForSignal.set(countForSignal()-1)">Decrement</button>
 <button (click)="countForSignal.set(countForSignal()+1)">Increment</button>
+
+<!-- Data Type with Signals -->
+<hr>
+<h1>Types of Signals</h1>
+
+<h1>{{dataForSignal()}}</h1>
+<!-- <h1>{{countForExecutableSignal()}}</h1> -->
+
+<button (click)="updateValueForSignal()">Update value</button>
