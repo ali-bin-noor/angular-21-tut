@@ -182,11 +182,27 @@ export class App {
   }
 
   // Data Type with Signals
+  // Writable Signals
   dataForSignal: WritableSignal<number | string> = signal<number | string>(10)//writable signal
-  // countForExecutableSignal: Signal<number> = computed(() => 300) //executable signal - this is treat as constant values/cannot change the value
+  // countForComputedSignal: Signal<number> = computed(() => 300) //Computed signal - this is treat as constant values/cannot change the value
 
   updateValueForSignal() {
     this.dataForSignal.set(this.data = 'Hello')
   }
 
+  // Computed Signals
+  l = signal(10)
+  m = signal(20)
+  z = computed(() => this.l() + this.m())
+
+  showValue(){
+    console.log(this.z())
+    this.m.set(1200)
+    console.
+    log(this.z())
+  }
+
+  updateM(){
+    this.m.set(100)
+  }
 }

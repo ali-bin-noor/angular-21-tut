@@ -196,10 +196,18 @@
 <button (click)="countForSignal.set(countForSignal()+1)">Increment</button>
 
 <!-- Data Type with Signals -->
+ <!-- Writable Signals -->
 <hr>
 <h1>Types of Signals</h1>
 
 <h1>{{dataForSignal()}}</h1>
-<!-- <h1>{{countForExecutableSignal()}}</h1> -->
+<!-- <h1>{{countForComputedSignal()}}</h1> -->
 
 <button (click)="updateValueForSignal()">Update value</button>
+
+<!--  Computed Signals -->
+  <h1>Computed Signals</h1>
+  <h1>{{z()}}</h1>
+  <button (click)="showValue()">Show Value</button>
+  <button (click)="updateM()">UpdateM</button>
+
