@@ -25,45 +25,36 @@
 <div style="text-align: center;">
     <h2 class="count">{{count}}</h2>
     <div>
-        <button (click) = "handleCounter('minus')" class="btn bg-red">Decrement</button>
-        <button (click) = "handleCounter('reset')" class="btn bg-black">Reset</button>
-        <button (click) = "handleCounter('plus')" class="btn bg-green">Increment</button>
+        <button (click)="handleCounter('minus')" class="btn bg-red">Decrement</button>
+        <button (click)="handleCounter('reset')" class="btn bg-black">Reset</button>
+        <button (click)="handleCounter('plus')" class="btn bg-green">Increment</button>
     </div>
 </div>
 
 <h1>Event in Angular</h1>
-<button class = "btn" name= "login" (click)="handleEvent($event)">Click event</button>
+<button class="btn" name="login" (click)="handleEvent($event)">Click event</button>
 
 <br>
 <br>
 
-<div
-(click)="handleEvent($event)"
-style="background-color: green; width: 100px; height: 100px;">
+<div (click)="handleEvent($event)" style="background-color: green; width: 100px; height: 100px;">
 
 
 </div>
 
-<div 
-(mouseenter)="handleEvent($event)" (mouseleave)="handleEvent($event)"
-style="background-color: red; width: 100px; height: 100px;">
+<div (mouseenter)="handleEvent($event)" (mouseleave)="handleEvent($event)"
+    style="background-color: red; width: 100px; height: 100px;">
 
 </div>
 
-<div 
-(mouseleave)="handleEvent($event)"
-style="background-color: yellow; width: 100px; height: 100px;">
+<div (mouseleave)="handleEvent($event)" style="background-color: yellow; width: 100px; height: 100px;">
 
 </div>
 
 <br>
 <br>
 
-<input 
-(focus)="handleEvent($event)"
-(blur)="handleEvent($event)"
-(input)="handleEvent($event)"
-type="text" name="user">
+<input (focus)="handleEvent($event)" (blur)="handleEvent($event)" (input)="handleEvent($event)" type="text" name="user">
 
 <br>
 <br>
@@ -71,7 +62,7 @@ type="text" name="user">
 <!--Get and Set input-->
 <h1>Get and Set Input field value</h1>
 <h1>User Name is : {{displaynaam}} </h1>
-<input type="text" value="{{naam}}"  (input)="getNaam($event)"  placeholder="Enter User name">
+<input type="text" value="{{naam}}" (input)="getNaam($event)" placeholder="Enter User name">
 <br>
 <br>
 <button (click)="showNaam()">Get Name</button>
@@ -100,9 +91,9 @@ type="text" name="user">
 <button (click)="showDiv()">Show Div</button>
 <button (click)="toggleDiv()">Toggle Div</button>
 @if(display){
-    <div style="width: 200px;height: 200px; background-color: green ;">
+<div style="width: 200px;height: 200px; background-color: green ;">
 
-    </div>
+</div>
 }
 
 <hr>
@@ -110,14 +101,14 @@ type="text" name="user">
 <button (click)="toggleTwoDiv()">{{toggle2Div?'show red div':'show gold div'}}</button>
 
 @if(toggle2Div){
-    <div style="background-color: gold; width: 200px; height: 200px;">
+<div style="background-color: gold; width: 200px; height: 200px;">
 
-    </div>
+</div>
 }
 @else{
-    <div style="background-color: red; width: 200px; height: 200px;">
+<div style="background-color: red; width: 200px; height: 200px;">
 
-    </div>
+</div>
 }
 <hr>
 <!--learning else if-->
@@ -130,17 +121,76 @@ type="text" name="user">
 
 <input (input)="handleInput($event)" type="text" placeholder="Enter color number">
 @if(color == 1){
-    <div style="background-color: red; width: 100px; height: 100px;"></div>
+<div style="background-color: red; width: 100px; height: 100px;"></div>
 }
 @else if(color == 2){
-    <div style="background-color: blue; width: 100px; height: 100px;"></div>
+<div style="background-color: blue; width: 100px; height: 100px;"></div>
 }
 @else if(color == 3){
-    <div style="background-color: green; width: 100px; height: 100px;"></div>
+<div style="background-color: green; width: 100px; height: 100px;"></div>
 }
 @else{
-    <div style="background-color: black; width: 100px; height: 100px;"></div>
+<div style="background-color: black; width: 100px; height: 100px;"></div>
 }
 
 <!--learning switch case-->
+<hr>
 
+<h1>Switch Case in Angular</h1>
+<button (click)="handleColour('red')">Red</button>
+<button (click)="handleColour('green')">Green</button>
+<button (click)="handleColour('yellow')">Yellow</button>
+<button (click)="handleColour('blue')">Blue</button>
+<button (click)="handleColour('gold')">Gold</button>
+<input type="text" placeholder="enter color" (input)="handleInputForColor($event)">
+
+@switch(colour){
+@case('red'){
+<h1 style="background-color: red;">Red Color</h1>
+}
+@case('green'){
+<h1 style="background-color: green;">Green Color</h1>
+}
+@case('yellow'){
+<h1 style="background-color: yellow;">Yellow Color</h1>
+}
+@case('blue'){
+<h1 style="background-color: blue;">Blue Color</h1>
+}
+@default{
+<h1 style="background-color: black; color: white;">No Color Match</h1>
+}
+}
+<hr>
+<!-- learning for loop -->
+<h1>For Loop in Angular</h1>
+@for(user of users; track user){
+<h2>{{user}}</h2>
+}
+<hr>
+@for(student of students; track student.name;;let id=$index){
+<h1>
+    <span>{{id+1}}</span>
+    <span>{{student.name}}</span>
+    <span>{{student.age}}</span>
+    <span>{{student.email}}</span>
+</h1>
+}
+<hr>
+
+
+<!-- learning Signals -->
+<h1>Basics of Signals</h1>
+
+<h1>{{countForSignal()}}</h1>
+<h1>{{xForSignal}}</h1>
+
+<button (click)="updatevalue()">Update Value</button>
+<br>
+<!-- other ways of using signal can be directly used in html file -->
+<br>
+
+
+<h1>{{countForSignal()}}</h1>
+<button (click)="countForSignal.set(countForSignal()-1)">Decrement</button>
+<button (click)="countForSignal.set(countForSignal()+1)">Increment</button>

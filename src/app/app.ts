@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Login } from './login/login';
 import { SignUp } from './sign-up/sign-up';
@@ -68,79 +68,117 @@ export class App {
         this.count--;
       }
     } else if (value == "plus") {
-      this.count ++;
+      this.count++;
     } else {
       this.count = 0;
     }
   }
 
-  handleEvent(event:Event){//MouseEvent ki jagah any laga sakte ho
-    console.log("function called",event.type)
+  handleEvent(event: Event) {//MouseEvent ki jagah any laga sakte ho
+    console.log("function called", event.type)
     //console.log("function called",event.target.name)
     //console.log("function called",(event.target as Element).className)
-    console.log("value",(event.target as HTMLInputElement).value)
+    console.log("value", (event.target as HTMLInputElement).value)
   }
 
-  
 
 
-  naam =""
+
+  naam = ""
   displaynaam = ""
-  getNaam(event:Event){
+  getNaam(event: Event) {
     const value = (event.target as HTMLInputElement).value
     console.log(value)
-    this.naam= value
+    this.naam = value
   }
 
-  showNaam(){
-    this.displaynaam=this.naam
+  showNaam() {
+    this.displaynaam = this.naam
   }
 
-  setNaam(){
-    this.naam="Sam"
+  setNaam() {
+    this.naam = "Sam"
   }
 
 
-  email2=""
-  getEmail(value:string){
+  email2 = ""
+  getEmail(value: string) {
     console.log(value)
-    this.email2=value
+    this.email2 = value
   }
-  setEmail(){
+  setEmail() {
     this.email2 = "test@test.com"
   }
 
   //learning if-else | control flow
   display = true;
-  x=10
-  toggle2Div= false
+  x = 10
+  toggle2Div = false
 
-  hideDiv(){
-    this.display=false
+  hideDiv() {
+    this.display = false
   }
 
-  showDiv(){
-    this.display=true
+  showDiv() {
+    this.display = true
   }
-  toggleDiv(){
+  toggleDiv() {
     this.display = !this.display
   }
 
-  toggleTwoDiv(){
-    this.toggle2Div =!this.toggle2Div
+  toggleTwoDiv() {
+    this.toggle2Div = !this.toggle2Div
   }
 
   // learning else if
   color = 100
 
-  handleColor(val:number){
-    this.color=val
+  handleColor(val: number) {
+    this.color = val
   }
 
-  handleInput(event:Event){
-      this.color=parseInt((event.target as HTMLInputElement).value)
+  handleInput(event: Event) {
+    this.color = parseInt((event.target as HTMLInputElement).value)
   }
 
-   // learning switch case
+  // learning switch case
+  colour = 'blue'
+
+  handleColour(val: string) {
+    this.colour = val
+  }
+
+  handleInputForColor(event: Event) {
+    this.colour = (event.target as HTMLInputElement).value
+  }
+
+  // learning for loop
+  users = ["Anil", "Sam", "Peter", "Raju", "Himansu"]
+
+  students = [
+    { name: 'Anil', age: 29, email: 'anil@test.com' },
+    { name: 'Sam', age: 29, email: 'sam@test.com' },
+    { name: 'Peter', age: 29, email: 'peter@test.com' },
+    { name: 'Himansu', age: 29, email: 'himansu@test.com' },
+  ]
+
+  getname(name: string) {
+    console.log(name)
+  }
+
+  //leaning Signals
+  countForSignal = signal(10) //this is signal
+  xForSignal = 20 //this is normal variable
+
+  constructor() {
+    effect(() => {
+      console.log(this.countForSignal())
+    })
+  }
+
+  updatevalue() {
+    this.countForSignal.set(this.countForSignal() + 1)
+
+  }
 
 }
