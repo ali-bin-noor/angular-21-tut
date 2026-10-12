@@ -170,11 +170,11 @@ export class App {
   countForSignal = signal(10) //this is signal
   xForSignal = 20 //this is normal variable
 
-  constructor() {
-    effect(() => {
-      console.log(this.countForSignal())
-    })
-  }
+  // constructor() {
+  //   effect(() => {
+  //     console.log(this.countForSignal())
+  //   })
+  // }
 
   updatevalue() {
     this.countForSignal.set(this.countForSignal() + 1)
@@ -205,4 +205,25 @@ export class App {
   updateM(){
     this.m.set(100)
   }
+
+  // Effect leaning 
+
+  userName = signal("Anil")
+  displayForPageHeading = false
+  countForPageHeading = signal(0);
+
+  constructor(){
+    effect(()=>{
+      if(this.countForPageHeading()== 2){
+        this.displayForPageHeading = true
+      }else{
+        this.displayForPageHeading = false
+      }
+    })
+  }
+
+  updatevalueForPageHeading(){
+    this.countForPageHeading.set(this.countForPageHeading()+1)
+  }
+
 }

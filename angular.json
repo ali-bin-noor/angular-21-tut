@@ -55,6 +55,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "port": 4700
+          },
           "configurations": {
             "production": {
               "buildTarget": "angular-21-tut:build:production"
